@@ -37,9 +37,7 @@ section {
   background-color: rgba(0, 0, 0, 0.4);
 }
 label{
-  display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   padding: 1rem;
 }
 
