@@ -34,9 +34,9 @@ const Login = () => {
     <>
         {success ? ( 
         <section>
-        <h1>Success</h1>
+        <h1>Login successfully</h1>
         <p>
-          <a href="./Login">Sign in</a>
+          <a href="./Login">Home</a>
         </p>
       </section>
 
