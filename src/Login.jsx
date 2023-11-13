@@ -19,9 +19,43 @@ const Login = () => {
     
     
   return (
-    <div>
-      
-    </div>
+    <>
+        <section>
+            <p ref={errRef} className={ errMsg ? "errMsg": "offscreen"} aria-live="assertive">
+                {errMsg}
+            </p>    
+            <h1>sign in</h1>
+            <form>
+                <label>
+                    Username:
+                    <input 
+                    type="text"
+                    id="username"
+                    ref={userRef}
+                    autoComplete="off"
+                    onChange={(e) => setUsername(e.target.value)}
+                    value={username}
+                    required
+                    />
+                </label>
+                <label>
+                    Password:
+                    <input 
+                    type="password"
+                    id="password"
+                    onChange={(e) => setPassword(e.target.value)}
+                    value={password}
+                    required
+                    />
+                </label>
+                <button
+                
+                >
+                    Sign in
+                </button>
+            </form>
+        </section>      
+    </>
   )
 }
 
