@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
 * {
   margin: 0;
@@ -7,14 +7,14 @@
 }
 
 html {
-  font-family: "Nunito", sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-size: 22px;
   color: #fff;
 }
 
 body {
   min-height: 100vh;
-  background-color: dodgerblue;
+  background-color: rgb(146, 207, 130);
 }
 
 .App {
@@ -24,6 +24,7 @@ body {
   align-items: center;
   min-height: 100vh;
   padding: 1rem 0.5rem;
+
 }
 
 section {
@@ -35,10 +36,9 @@ section {
   justify-content: flex-start;
   padding: 1rem;
   background-color: rgba(0, 0, 0, 0.4);
-}
-label{
-  flex-direction: column;
-  padding: 1rem;
+  border-bottom-left-radius: 25px;
+  border-top-right-radius: 20px;
+
 }
 
 form {
@@ -53,26 +53,31 @@ a,
 a:visited {
   color: #fff;
 }
-button {
-  padding: 0.5rem;
-  cursor: pointer;
-}
 
 input[type="text"],
 input[type="password"],
 button,
 textarea {
-  font-family: "Nunito", sans-serif;
+
+  font-family: 'Nunito', sans-serif;
   font-size: 22px;
-  border: none;
-  outline: none;
-  padding: 0.45rem;
+  padding: 0.25rem;
   border-radius: 0.5rem;
 }
 
-label,
+label {
+  display: flex;
+  flex-direction: column;
+}
+
 button {
+
   margin-top: 1rem;
+}
+
+button {
+  padding: 0.5rem;
+  cursor: pointer;
 }
 
 .instructions {
@@ -85,7 +90,7 @@ button {
   bottom: -10px;
 }
 
-.instructions > svg {
+.instructions>svg {
   margin-right: 0.25rem;
 }
 
