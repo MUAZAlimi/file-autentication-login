@@ -16,16 +16,37 @@ const Login = () => {
     useEffect(() => {
         setErrMsg("")
     }, [username, password])
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        if(!username || !password) {
+            setErrMsg('Invalid Entry');
+            return;
+          }
+          console.log(username, password)
+          setSuccess(true)
+          username("")
+          password("")
+      }
     
     
   return (
     <>
+        {success ? ( 
+        <section>
+        <h1>Success</h1>
+        <p>
+          <a href="./Login">Sign in</a>
+        </p>
+      </section>
+
+    ) :(
         <section>
             <p ref={errRef} className={ errMsg ? "errMsg": "offscreen"} aria-live="assertive">
                 {errMsg}
             </p>    
             <h1>sign in</h1>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <label>
                     Username:
                     <input 
@@ -62,7 +83,8 @@ const Login = () => {
                     </a>
                  </span>
             </p>
-        </section>      
+        </section>     
+    )} 
     </>
   )
 }
