@@ -54,6 +54,14 @@ const Login = () => {
                     Sign in
                 </button>
             </form>
+            <p>
+                 Need an Acount ? <br />
+                 <span className="line">
+                    <a href="./Login">
+                        Sign in
+                    </a>
+                 </span>
+            </p>
         </section>      
     </>
   )
