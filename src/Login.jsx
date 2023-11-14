@@ -42,7 +42,7 @@ const Login = () => {
       setSuccess(true);
       user("");
       pwd("");
-    } catch (err) {
+    } catch (error) {
         if (!error.response) {
             setErrMsg('No Server Resonse')
         }else if (error.response?.status === 400) {
