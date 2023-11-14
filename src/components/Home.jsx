@@ -15,6 +15,10 @@ const Home = () => {
         <Link to='./Lounge'>Go to the Lounge Page</Link>
       <br />
         <Link to='./LinkPage'>Go to the Link Page</Link>
+
+        <div className="flexGrow">
+            <button>Sign Out</button>
+        </div>
     </section>
   )
 }
