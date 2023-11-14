@@ -16,6 +16,7 @@ body {
   min-height: 100vh;
   background-color: aqua;
   background: url(./assets/architecture-2256489_1280.jpg);
+  background-repeat: round;
 }
 
 .App {
