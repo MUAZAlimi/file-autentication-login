@@ -66,7 +66,7 @@ const Login = () => {
         <section>
           <h1>Login successfully</h1>
           <p>
-            <a href="./Login">Home</a>
+            <a href="/">Home</a>
           </p>
         </section>
       ) : (
