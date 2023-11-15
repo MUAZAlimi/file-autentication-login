@@ -7,7 +7,7 @@ const RequireAuth = ({ allowedRoles }) => {
   const location = useLocation();
   return (
     // eslint-disable-next-line react/prop-types
-    auth?.roles?.find(role => allowedRoles.includes(role)) ? (
+    auth?.roles?.find(role => allowedRoles?.includes(role)) ? (
       <Outlet />
     ) : auth?.user ? (
       <Navigate to="/unauthorized" state={{ from: location }} replace />
