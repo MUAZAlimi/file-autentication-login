@@ -1,18 +1,18 @@
-import { Link } from "react-router-dom"
+// import React from 'react'
+import { Link } from 'react-router-dom'
 
-
-const Editor = () => {
+const Admin = () => {
   return (
     <section>
-      <h1>Editors Page</h1>
-      <br />
-      <p>You must have been assigned an Editor role</p>
+        <h1>Admin Page</h1>
+        <br />
+        <p>You must have been assigned an Admin Role</p>
 
-      <div className="flexGrow">
+        <div className="flexGrow">
             <Link to='/'>Home</Link>
-      </div>
+        </div>
     </section>
   )
 }
 
-export default Editor
+export default Admin
