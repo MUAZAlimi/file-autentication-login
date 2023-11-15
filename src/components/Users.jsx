@@ -6,6 +6,14 @@ const Users = () => {
     useEffect(() => {
       let isMounted = true;
       const controller = new AbortController()
+
+      const getUsers = async () => {
+        try {
+          const response = await axios.get()
+        } catch (err) {
+            console.error(err)
+        }
+      }
     }, [])
     
   return (
