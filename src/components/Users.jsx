@@ -1,46 +1,48 @@
-import { useEffect, useState } from "react"
-import axios from "../api/axios"
+import {  useState, useEffect } from "react"
+import useAxiosPrivate from "../hooks/useAxiosPrivate";
 
 const Users = () => {
-  const [users, setUsers] = useState()
-  
+    const [users, setUsers] = useState();
+    const axiosPrivate = useAxiosPrivate();
+    // const refresh = useRefreshToken()
+
     useEffect(() => {
-      let isMounted = true;
-      const controller = new AbortController()
+        let isMounted = true
+        const controller = new AbortController()
 
-      const getUsers = async () => {
-        try {
-          const response = await axios.get('/users', {
-            signal: controller.signal
-          })
-          console.log(response.data)
-          isMounted && setUsers(response.data)
-        } catch (err) {
-            console.error(err)
+        const getUsers = async () => {
+            try {
+                const response = await axiosPrivate.get('/users', {
+                    signal: controller.signal
+                })
+                console.log(response.data);
+                isMounted && setUsers(response.data)
+            } catch (error) {
+                console.log(error);
+            }
         }
-      }
-      getUsers()
+        getUsers()
+        return () => {
+            isMounted = false;
+            controller.abort();
+        }
 
-      return () => {
-        isMounted = false
-        controller.abort()
-      }
     }, [])
-    
-  return (
-    <article>
-      <h2>Users List </h2>
-      {users?.length
-          ? (
-              <ul>
-                   {users.map((user, i) => <li key={i}>{user?.username}</li>)}
-              </ul>
-          ) : <p>No user to display</p>
-      }
-      <button>Refresh</button>
-      <br />
-    </article>
-  )
+
+    return (
+        <article>
+            <h2>User List</h2>
+            {users?.length
+                ? (
+                    <ul>
+                        {users.map((user, i) => <li key={i} >{user?.
+                            username}</li>)}
+                    </ul>
+                ) : <p>No user to display</p>
+            }
+          
+        </article>
+    )
 }
 
 export default Users
