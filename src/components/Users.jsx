@@ -19,6 +19,11 @@ const Users = () => {
         }
       }
       getUsers()
+
+      return () => {
+        isMounted = false
+        controller.abort()
+      }
     }, [])
     
   return (
