@@ -3,6 +3,7 @@ import axios from "../api/axios"
 
 const Users = () => {
   const [users, setUsers] = useState()
+  
     useEffect(() => {
       let isMounted = true;
       const controller = new AbortController()
@@ -36,6 +37,8 @@ const Users = () => {
               </ul>
           ) : <p>No user to display</p>
       }
+      <button>Refresh</button>
+      <br />
     </article>
   )
 }
