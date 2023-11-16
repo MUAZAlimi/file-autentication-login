@@ -16,10 +16,10 @@ const persistLogin = () => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
                 // eslint-disable-next-line no-unused-vars
-                let isMounted = true
+                // let isMounted = true
         const verifyRefreshToken = async () => {
             try {
-                  await refresh
+                  await refresh();
             } catch (error) {
                 console.error(error);
             } finally {
@@ -28,7 +28,7 @@ const persistLogin = () => {
         }
         !auth?.accessToken ? verifyRefreshToken() : setIsLoading(false);
 
-         return () => isMounted = false;
+        //  return () => isMounted = false;
     }, [])
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
