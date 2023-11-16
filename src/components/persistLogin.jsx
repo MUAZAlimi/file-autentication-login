@@ -38,12 +38,15 @@ const persistLogin = () => {
   }, [isLoading]);
 
   return (
-    <>{!persist
+    <>
+        {!persist
          ? <Outlet /> 
          : isLoading 
                 ? <p>Loading...</p>
                 : 
-                <Outlet />}</>
+                <Outlet />
+        }
+    </>
   );
 };
 
