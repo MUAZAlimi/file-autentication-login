@@ -38,6 +38,15 @@ const persistLogin = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isLoading])
     
+    return (
+        <>
+            {isLoading ?
+                 <p>Loading...</p>
+                 :
+                 <Outlet/>
+            }
+        </>
+    )
     
 
 }
