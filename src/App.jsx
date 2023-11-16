@@ -11,10 +11,10 @@ import Missing from "./components/Missing";
 import RequireAuth from "./components/RequireAuth";
 
 const ROLES = {
-  'User' : 2001,
-  'Editor' : 1984,
-  'Admin' : 5158
-}
+  User: 2001,
+  Editor: 1984,
+  Admin: 5158,
+};
 
 const App = () => {
   return (
@@ -27,19 +27,29 @@ const App = () => {
         <Route path="/Unauthorized" element={<Unauthorized />} />
 
         {/* private Routes */}
-        <Route element={<RequireAuth allowedRoles={[ROLES.User, ROLES.Editor, ROLES.Admin]}/>}>
-          <Route path="/" element={<Home />} />
+        <Route element={<persistLogin />}>
+          <Route
+            element={
+              <RequireAuth
+                allowedRoles={[ROLES.User, ROLES.Editor, ROLES.Admin]}
+              />
+            }
+          >
+            <Route path="/" element={<Home />} />
+          </Route>
+          <Route element={<RequireAuth allowedRoles={[ROLES.Editor]} />}>
+            <Route path="editor" element={<Editor />} />
+          </Route>
+          <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
+            <Route path="admin" element={<Admin />} />
+          </Route>
+          <Route
+            element={<RequireAuth allowedRoles={[ROLES.Editor, ROLES.Admin]} />}
+          >
+            <Route path="lounge" element={<Lounge />} />
+          </Route>
         </Route>
-        <Route element={<RequireAuth allowedRoles={[ROLES.Editor]}/>}>
-          <Route path="editor" element={<Editor />} />
-        </Route>
-        <Route element={<RequireAuth allowedRoles={[ROLES.Admin]}/>}>
-          <Route path="admin" element={<Admin />} />
-        </Route>
-        <Route element={<RequireAuth allowedRoles={[ROLES.Editor, ROLES.Admin]}/>}>
-          <Route path="lounge" element={<Lounge />} />
-        </Route>
-        
+
         {/* to catch all error */}
         <Route path="*" element={<Missing />} />
       </Route>
