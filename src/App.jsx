@@ -11,7 +11,7 @@ import Missing from "./components/Missing";
 import RequireAuth from "./components/RequireAuth";
 
 const ROLES = {
-  'User' : 4000,
+  'User' : 2001,
   'Editor' : 1984,
   'Admin' : 5158
 }
