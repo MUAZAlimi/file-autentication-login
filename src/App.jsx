@@ -1,4 +1,3 @@
-// import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout";
 import Login from "./components/Login";
@@ -12,7 +11,7 @@ import Missing from "./components/Missing";
 import RequireAuth from "./components/RequireAuth";
 
 const ROLES = {
-  'User' : 2001,
+  'User' : 4000,
   'Editor' : 1984,
   'Admin' : 5158
 }
@@ -24,8 +23,8 @@ const App = () => {
         {/* public Routes */}
 
         <Route path="login" element={<Login />} />
-        <Route path="linkpage" element={<LinkPage />} />
-        <Route path="Unauthorized" element={<Unauthorized />} />
+        <Route path="/linkpage" element={<LinkPage />} />
+        <Route path="/Unauthorized" element={<Unauthorized />} />
 
         {/* private Routes */}
         <Route element={<RequireAuth allowedRoles={[ROLES.User, ROLES.Editor, ROLES.Admin]}/>}>
