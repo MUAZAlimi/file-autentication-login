@@ -28,7 +28,7 @@ const persistLogin = () => {
     !auth?.accessToken ? verifyRefreshToken() : setIsLoading(false);
 
     //  return () => isMounted = false;
-  }, []);
+  });
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
