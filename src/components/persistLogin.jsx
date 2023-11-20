@@ -1,21 +1,19 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react-hooks/rules-of-hooks */
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
 import useRefreshToken from "../hooks/useRefreshToken";
 import useAuth from "../hooks/useAuth";
 
 const persistLogin = () => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [isLoading, setIsLoading] = useState(true);
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const refresh = useRefreshToken();
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { auth, persist } = useAuth();
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
-    // eslint-disable-next-line no-unused-vars
-    // let isMounted = true
+    let isMounted = true
     const verifyRefreshToken = async () => {
       try {
         await refresh();
@@ -27,14 +25,12 @@ const persistLogin = () => {
     };
     !auth?.accessToken ? verifyRefreshToken() : setIsLoading(false);
 
-    //  return () => isMounted = false;
+     return () => isMounted = false;
   });
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     console.log(`isLoading : ${isLoading}`);
     console.log(`aT: ${JSON.stringify(auth?.accessToken)}`);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoading]);
 
   return (
