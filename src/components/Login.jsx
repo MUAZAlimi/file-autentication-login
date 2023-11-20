@@ -17,7 +17,7 @@ function Login() {
    const userRef = useRef();
    const errRef = useRef();
 
-   const [user, setUser] =  useLocalStorage('user', '')    //useState("");
+   const [user, setUser] = useLocalStorage('user', '')    //useState("");
    const [pwd, setPwd] = useState("");
    const [errMsg, setErrMsg] = useState("");
 
