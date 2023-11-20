@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 
 const getLocalValue = (key, initValue) => {
-    //SSR Next Js
+    //SSR Next Js (server side error)
     if (typeof window === 'undefined') return initValue
 
     // if a value is already stored
@@ -12,7 +12,7 @@ const getLocalValue = (key, initValue) => {
 
     // return result of a function
 
-    if (initValue instanceof Function) return initValue
+    if (initValue instanceof Function) return initValue()
 
     return initValue
 }
